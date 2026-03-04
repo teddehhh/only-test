@@ -4,6 +4,7 @@ import { dirname } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,6 +22,7 @@ const plugins = [
     publicPath: '/',
   }),
   new ForkTsCheckerWebpackPlugin(),
+  new MiniCssExtractPlugin(),
 ];
 
 if (mode === 'development') {
@@ -29,7 +31,7 @@ if (mode === 'development') {
 
 const config = {
   mode,
-  entry: './src/index.tsx',
+  entry: './src/app/main.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -46,12 +48,17 @@ const config = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@shared': path.resolve(__dirname, 'src/shared/'),
+      '@widgets': path.resolve(__dirname, 'src/widgets/'),
+    },
   },
   module: {
     rules: [
       { test: /\.(html)$/, use: ['html-loader'] },
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -61,17 +68,26 @@ const config = {
         },
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.module\.scss$/i,
+        use: [
+          process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                namedExport: false,
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/i,
+        exclude: /\.module\.scss$/,
         use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
+          process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          // Compiles Sass to CSS
           'sass-loader',
         ],
       },
