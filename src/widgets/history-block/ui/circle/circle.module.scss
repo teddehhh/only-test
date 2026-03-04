@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+.circle {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(66, 86, 122, 0.2);
+  border-radius: 50%;
+}
+
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gray;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}

@@ -41,11 +41,14 @@
       "@pages/*": [
         "src/pages/*"
       ],
-      "@shared/*": [
-        "src/shared/*"
+      "@entities/*": [
+        "src/entities/*"
       ],
       "@widgets/*": [
         "src/widgets/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
       ],
     }
   },

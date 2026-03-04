@@ -50,8 +50,9 @@ const config = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@pages': path.resolve(__dirname, 'src/pages/'),
-      '@shared': path.resolve(__dirname, 'src/shared/'),
+      '@entities': path.resolve(__dirname, 'src/entities/'),
       '@widgets': path.resolve(__dirname, 'src/widgets/'),
+      '@shared': path.resolve(__dirname, 'src/shared/'),
     },
   },
   module: {
@@ -83,8 +84,8 @@ const config = {
         ],
       },
       {
-        test: /\.scss$/i,
-        exclude: /\.module\.scss$/,
+        test: /\.(scss|css)$/i,
+        exclude: /\.module\.(scss|css)$/,
         use: [
           process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
