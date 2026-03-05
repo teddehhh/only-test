@@ -28,7 +28,7 @@ export const EventSlider = (props: EventSliderProps) => {
         duration: 0.4,
         ease: 'power2.in',
       })
-        .to({}, { duration: 0.2 })
+        .to({}, { duration: 0.6 })
         .fromTo(
           containerRef.current,
           { opacity: 0, y: 10 },
