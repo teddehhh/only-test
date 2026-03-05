@@ -8,8 +8,8 @@
 }
 
 .inner {
-  border-left: 1px rgba(66, 86, 122, 0.2) solid;
-  border-right: 1px rgba(66, 86, 122, 0.2) solid;
+  border-left: 1px $line solid;
+  border-right: 1px $line solid;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
   &::after {
     content: '';
     position: absolute;
-    background-color: rgba(66, 86, 122, 0.2);
+    background-color: $line;
     z-index: 0;
     width: 1px;
     height: 100%;

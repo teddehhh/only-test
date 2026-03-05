@@ -10,13 +10,12 @@
   .swiper-button-prev {
     width: 40px;
     height: 40px;
-    background: #fff;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    
+
     &::after {
       font-size: 12px;
-      color: #3877ee;
+      color: $primary;
       font-weight: bold;
     }
   }

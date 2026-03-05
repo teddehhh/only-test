@@ -1,0 +1,16 @@
+.title {
+  position: absolute;
+  font-size: 40px;
+  padding-left: 4rem;
+  color: $black-blue;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient($primary, $secondary);
+  }
+}

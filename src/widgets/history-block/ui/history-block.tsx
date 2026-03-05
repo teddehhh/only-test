@@ -3,6 +3,7 @@ import { Circle } from './circle/circle';
 import { EventSlider } from './event-slider/event-slider';
 import { YearDigits } from './year-digits/year-digits';
 import styles from './history-block.module.scss';
+import { Title } from './title/title';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,6 +15,7 @@ export function HistoryBlock() {
 
   return (
     <div>
+      <Title />
       <div className={styles.circleWrapper}>
         <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
         <Circle activeIndex={activeIndex} pointsCount={6} onPointClick={handlePointClick} />

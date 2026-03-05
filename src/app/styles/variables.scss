@@ -1,0 +1,16 @@
+:root {
+  --color-primary: #5d5fef;
+  --color-secondary: #ef5da8;
+  --color-black-blue: #42567a;
+  --color-line: rgba(66, 86, 122, 0.1);
+  --color-circle: rgba(66, 86, 122, 0.2);
+
+  --color-bg: #ffffff;
+}
+
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
+$black-blue: var(--color-black-blue);
+$line: var(--color-line);
+$circle: var(--color-circle);
+$bg: var(--color-bg);

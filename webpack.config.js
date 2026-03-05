@@ -80,7 +80,16 @@ const config = {
               },
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: (content) => {
+                const variablesPath = path.resolve(__dirname, 'src/app/styles/variables.scss');
+                const normalizedPath = variablesPath.replace(/\\/g, '/');
+                return `@use "${normalizedPath}" as *;\n${content}`;
+              },
+            },
+          },
         ],
       },
       {
@@ -89,7 +98,16 @@ const config = {
         use: [
           process.env.NODE_ENV === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: (content) => {
+                const variablesPath = path.resolve(__dirname, 'src/app/styles/variables.scss');
+                const normalizedPath = variablesPath.replace(/\\/g, '/');
+                return `@use "${normalizedPath}" as *;\n${content}`;
+              },
+            },
+          },
         ],
       },
     ],
