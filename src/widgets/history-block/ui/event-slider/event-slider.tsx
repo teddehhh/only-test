@@ -7,6 +7,7 @@ import 'swiper/swiper-bundle.css';
 import styles from './event-slider.module.scss';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
+import { Arrow } from '@shared/ui';
 
 interface EventSliderProps {
   events: HistoryEvent[];
@@ -66,8 +67,12 @@ export const EventSlider = (props: EventSliderProps) => {
         ))}
       </Swiper>
 
-      <button className="swiper-button-prev"></button>
-      <button className="swiper-button-next"></button>
+      <button className="swiper-button-prev">
+        <Arrow direction="left" />
+      </button>
+      <button className="swiper-button-next">
+        <Arrow direction="right" />
+      </button>
     </div>
   );
 };

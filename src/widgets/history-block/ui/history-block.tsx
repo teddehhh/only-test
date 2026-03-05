@@ -33,13 +33,15 @@ export function HistoryBlock() {
           onPointClick={handlePointClick}
         />
       </div>
-      <SliderNavigation
-        activeIndex={activeIndex}
-        totalCount={TOTAL_COUNT}
-        onPrev={handlePrevClick}
-        onNext={handleNextClick}
-      />
-      <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
+      <div className={styles.navSliderWrapper}>
+        <SliderNavigation
+          activeIndex={activeIndex}
+          totalCount={TOTAL_COUNT}
+          onPrev={handlePrevClick}
+          onNext={handleNextClick}
+        />
+        <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
+      </div>
     </div>
   );
 }
@@ -51,9 +53,21 @@ const DATA = [
     startYear: '1000',
     endYear: '1300',
     events: [
-      { year: '1000', description: 'Событие 1 периода 1' },
-      { year: '1050', description: 'Событие 2 периода 1' },
-      { year: '1100', description: 'Событие 3 периода 1' },
+      {
+        year: '1000',
+        description:
+          '13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды',
+      },
+      {
+        year: '1050',
+        description:
+          'Телескоп «Хаббл» обнаружил самую удалённую из всех обнаруженных галактик, получившую обозначение GN-z11',
+      },
+      {
+        year: '1100',
+        description:
+          'Компания Tesla официально представила первый в мире электрический грузовик Tesla Semi',
+      },
       { year: '1150', description: 'Событие 4 периода 1' },
       { year: '1200', description: 'Событие 2 периода 1' },
       { year: '1250', description: 'Событие 6 периода 1' },
