@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Circle } from './circle/circle';
 import { EventSlider } from './event-slider/event-slider';
+import { YearDigits } from './year-digits/year-digits';
+import styles from './history-block.module.scss';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -12,7 +14,10 @@ export function HistoryBlock() {
 
   return (
     <div>
-      <Circle activeIndex={activeIndex} pointsCount={6} onPointClick={handlePointClick} />
+      <div className={styles.circleWrapper}>
+        <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
+        <Circle activeIndex={activeIndex} pointsCount={6} onPointClick={handlePointClick} />
+      </div>
       <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
     </div>
   );
@@ -97,8 +102,8 @@ const DATA = [
   {
     id: 5,
     title: 'Медицина',
-    startYear: '5000',
-    endYear: '5300',
+    startYear: '6000',
+    endYear: '6300',
     events: [
       { year: '6000', description: 'Событие 1 периода 2' },
       { year: '6050', description: 'Событие 2 периода 2' },
