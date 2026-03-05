@@ -5,7 +5,9 @@
   max-width: 320px;
 
   .year {
-    color: $primary;
+    font-family: var(--font-family-accent);
+    font-size: 20px;
+    color: $blue;
   }
 
   .description {
