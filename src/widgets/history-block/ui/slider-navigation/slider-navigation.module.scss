@@ -1,0 +1,29 @@
+.navigationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: $black-blue;
+}
+
+.counterWrapper {
+  font-size: 12px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, $black-blue, transparent 50%);
+    color: $black-blue;
+
+    &:disabled {
+      border-color: color-mix(in srgb, $black-blue, transparent 80%);
+      color: color-mix(in srgb, $black-blue, transparent 80%);
+    }
+  }
+}

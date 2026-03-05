@@ -4,6 +4,7 @@ import { EventSlider } from './event-slider/event-slider';
 import { YearDigits } from './year-digits/year-digits';
 import styles from './history-block.module.scss';
 import { Title } from './title/title';
+import { SliderNavigation } from './slider-navigation/slider-navigation';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,13 +14,31 @@ export function HistoryBlock() {
     setActiveIndex(index);
   };
 
+  const handlePrevClick = () => {
+    setActiveIndex((prev) => prev - 1);
+  };
+
+  const handleNextClick = () => {
+    setActiveIndex((prev) => prev + 1);
+  };
+
   return (
     <div>
       <Title />
       <div className={styles.circleWrapper}>
         <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
-        <Circle activeIndex={activeIndex} pointsCount={6} onPointClick={handlePointClick} />
+        <Circle
+          activeIndex={activeIndex}
+          pointsCount={TOTAL_COUNT}
+          onPointClick={handlePointClick}
+        />
       </div>
+      <SliderNavigation
+        activeIndex={activeIndex}
+        totalCount={TOTAL_COUNT}
+        onPrev={handlePrevClick}
+        onNext={handleNextClick}
+      />
       <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
     </div>
   );
@@ -117,3 +136,5 @@ const DATA = [
     ],
   },
 ];
+
+const TOTAL_COUNT = DATA.length;
