@@ -29,6 +29,7 @@ export function HistoryBlock() {
         <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
         <Circle
           activeIndex={activeIndex}
+          currentTitle={currentPeriod?.title ?? ''}
           pointsCount={TOTAL_COUNT}
           onPointClick={handlePointClick}
         />
