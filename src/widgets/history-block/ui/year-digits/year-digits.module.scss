@@ -11,8 +11,13 @@
   span:first-child {
     color: $primary;
   }
-  
+
   span:last-child {
     color: $secondary;
+  }
+
+  @include for-mobile {
+    font-size: 56px;
+    gap: 20px;
   }
 }

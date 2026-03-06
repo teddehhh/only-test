@@ -1,5 +1,6 @@
 import { Arrow } from '@shared/ui';
 import styles from './slider-navigation.module.scss';
+import { displayDigits } from '../../lib/display-digits';
 
 interface SliderNavigationProps {
   activeIndex: number;
@@ -10,8 +11,6 @@ interface SliderNavigationProps {
 
 export function SliderNavigation(props: SliderNavigationProps) {
   const { activeIndex, totalCount, onPrev, onNext } = props;
-
-  const displayDigits = (num: number) => String(num).padStart(2, '0');
 
   return (
     <div className={styles.navigationWrapper}>

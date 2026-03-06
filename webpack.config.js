@@ -84,9 +84,13 @@ const config = {
             loader: 'sass-loader',
             options: {
               additionalData: (content) => {
-                const variablesPath = path.resolve(__dirname, 'src/app/styles/variables.scss');
-                const normalizedPath = variablesPath.replace(/\\/g, '/');
-                return `@use "${normalizedPath}" as *;\n${content}`;
+                const stylePaths = [
+                  path.resolve(__dirname, 'src/app/styles/variables.scss'),
+                  path.resolve(__dirname, 'src/app/styles/breakpoints.scss'),
+                ];
+                const normalizedPaths = stylePaths.map((path) => path.replace(/\\/g, '/'));
+
+                return normalizedPaths.map((path) => `@use "${path}" as *;`).join('\n') + content;
               },
             },
           },

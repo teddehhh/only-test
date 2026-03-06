@@ -3,10 +3,19 @@
   flex-direction: column;
   gap: 14px;
   color: $black-blue;
+  position: relative;
+
+  @include for-mobile {
+    gap: 7px;
+  }
 }
 
 .counterWrapper {
   font-size: 12px;
+
+  @include for-mobile {
+    font-size: 14px;
+  }
 }
 
 .buttonsWrapper {
@@ -25,5 +34,19 @@
       border-color: color-mix(in srgb, $black-blue, transparent 80%);
       color: color-mix(in srgb, $black-blue, transparent 80%);
     }
+
+    @include for-mobile {
+      width: 28px;
+      height: 28px;
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  @include for-mobile {
+    gap: 9px;
   }
 }

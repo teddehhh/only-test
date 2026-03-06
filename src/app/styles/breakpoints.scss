@@ -1,0 +1,13 @@
+$mobile: 576px;
+
+@mixin for-non-mobile {
+  @media (min-width: #{$mobile + 1px}) {
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}

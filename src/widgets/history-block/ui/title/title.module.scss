@@ -5,13 +5,20 @@
   padding-left: 4rem;
   color: $black-blue;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: -1px;
-    top: 0;
-    width: 5px;
-    height: 100%;
-    background: linear-gradient($primary, $secondary);
+  @include for-non-mobile {
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient($primary, $secondary);
+    }
+  }
+
+  @include for-mobile {
+    font-size: 20px;
+    padding-left: 1.5rem;
   }
 }

@@ -5,9 +5,11 @@ import { YearDigits } from './year-digits/year-digits';
 import styles from './history-block.module.scss';
 import { Title } from './title/title';
 import { SliderNavigation } from './slider-navigation/slider-navigation';
+import { useIsMobile } from '@shared/lib';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const currentPeriod = DATA[activeIndex];
   const handlePointClick = (index: number) => {
@@ -27,12 +29,14 @@ export function HistoryBlock() {
       <Title />
       <div className={styles.circleWrapper}>
         <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
-        <Circle
-          activeIndex={activeIndex}
-          currentTitle={currentPeriod?.title ?? ''}
-          pointsCount={TOTAL_COUNT}
-          onPointClick={handlePointClick}
-        />
+        {!isMobile && (
+          <Circle
+            activeIndex={activeIndex}
+            currentTitle={currentPeriod?.title ?? ''}
+            pointsCount={TOTAL_COUNT}
+            onPointClick={handlePointClick}
+          />
+        )}
       </div>
       <div className={styles.navSliderWrapper}>
         <SliderNavigation

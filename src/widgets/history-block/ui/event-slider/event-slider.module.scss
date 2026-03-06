@@ -17,13 +17,17 @@
     svg {
       width: 10px !important;
       height: 10px !important;
-      fill:none
+      fill: none;
     }
 
     &.swiper-button-disabled {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+    }
+
+    @include for-mobile {
+      display: none;
     }
   }
 

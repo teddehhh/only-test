@@ -91,25 +91,23 @@ export function Circle(props: CircleProps) {
   );
 
   return (
-    <div className={styles.wrapper}>
-      <div ref={circleRef} className={styles.circle}>
-        {points.map((point, index) => (
-          <div
-            key={index}
-            className={clsx(styles.dot, { [styles.active]: index === activeIndex })}
-            style={{
-              left: `${point.x}%`,
-              top: `${point.y}%`,
-            }}
-            onClick={() => onPointClick(index)}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <span className={styles.dotNumber}>{index + 1}</span>
-            <span className={styles.dotTitle}>{currentTitle}</span>
-          </div>
-        ))}
-      </div>
+    <div ref={circleRef} className={styles.circle}>
+      {points.map((point, index) => (
+        <div
+          key={index}
+          className={clsx(styles.dot, { [styles.active]: index === activeIndex })}
+          style={{
+            left: `${point.x}%`,
+            top: `${point.y}%`,
+          }}
+          onClick={() => onPointClick(index)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <span className={styles.dotNumber}>{index + 1}</span>
+          <span className={styles.dotTitle}>{currentTitle}</span>
+        </div>
+      ))}
     </div>
   );
 }

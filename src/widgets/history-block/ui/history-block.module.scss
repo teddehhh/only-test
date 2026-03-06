@@ -1,23 +1,32 @@
 .circleWrapper {
   position: relative;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  max-width: 430px;
 
-  &::before {
-    content: '';
-    position: absolute;
-    background-color: $line;
-    z-index: 0;
-    width: 100%;
-    height: 1px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+  @include for-non-mobile {
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $line;
+      z-index: 0;
+      width: 100%;
+      height: 1px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
   }
 }
 
 .navSliderWrapper {
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin: 0 4rem;
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @include for-mobile {
+    margin: 0 1.5rem;
+    flex-direction: column-reverse;
+  }
 }
