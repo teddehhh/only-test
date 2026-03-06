@@ -8,6 +8,7 @@ import { SliderNavigation } from './slider-navigation/slider-navigation';
 import { useIsMobile } from '@shared/lib';
 import { DATA } from '../lib/constants/data';
 import { DisplayPeriod } from './display-period/display-period';
+import { PeriodNavigation } from './period-navigation/period-navigation';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -49,6 +50,13 @@ export function HistoryBlock() {
         />
         <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
         {isMobile && <DisplayPeriod title={currentPeriod?.title ?? ''} />}
+        {isMobile && (
+          <PeriodNavigation
+            activeIndex={activeIndex}
+            totalCount={DATA.length}
+            onPointClick={handlePointClick}
+          />
+        )}
       </div>
     </div>
   );

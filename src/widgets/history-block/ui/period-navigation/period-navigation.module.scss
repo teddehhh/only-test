@@ -1,0 +1,24 @@
+.navigationWrapper {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $black-blue;
+    opacity: 0.4;
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+
+    &.dotActive {
+      opacity: 1;
+    }
+  }
+}
