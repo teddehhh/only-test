@@ -54,7 +54,6 @@ export function Circle(props: CircleProps) {
       const rotation = -(activeIndex * step);
 
       gsap.to(circleRef.current, { rotation, duration: 1, ease: 'power2.inOut' });
-
       gsap.to(`.${styles.dot}`, {
         rotation: -rotation,
         duration: 1,
@@ -69,20 +68,15 @@ export function Circle(props: CircleProps) {
         duration: 1,
         ease: 'power2.inOut',
       });
-
-      gsap.set(`.${styles.dotTitle}`, { opacity: 0, visibility: 'hidden' });
-
       gsap.to(`.${styles.active} .${styles.dotNumber}`, {
         opacity: 1,
         visibility: 'visible',
         duration: 0.5,
         delay: 0.5,
       });
-
-      gsap.to(`.${styles.active} .${styles.dotTitle}`, {
+      gsap.to(`.${styles.dotTitle}`, {
         opacity: 1,
         visibility: 'visible',
-        duration: 0.5,
         delay: 1,
         ease: 'power1.out',
       });
@@ -105,7 +99,7 @@ export function Circle(props: CircleProps) {
           onMouseLeave={handleMouseLeave}
         >
           <span className={styles.dotNumber}>{index + 1}</span>
-          <span className={styles.dotTitle}>{currentTitle}</span>
+          {index === activeIndex && <span className={styles.dotTitle}>{currentTitle}</span>}
         </div>
       ))}
     </div>

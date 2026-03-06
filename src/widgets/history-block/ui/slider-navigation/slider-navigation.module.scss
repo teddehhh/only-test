@@ -30,9 +30,15 @@
     border: 1px solid color-mix(in srgb, $black-blue, transparent 50%);
     color: $black-blue;
 
+    transition: background-color 0.4s ease;
+
     &:disabled {
       border-color: color-mix(in srgb, $black-blue, transparent 80%);
       color: color-mix(in srgb, $black-blue, transparent 80%);
+    }
+
+    &:hover {
+      background-color: white;
     }
 
     @include for-mobile {

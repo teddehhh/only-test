@@ -1,5 +1,5 @@
 .yearsWrapper {
-  font-size: 150px;
+  font-size: clamp(48px, 12vw, 150px);
   font-weight: 700;
   display: flex;
   position: absolute;

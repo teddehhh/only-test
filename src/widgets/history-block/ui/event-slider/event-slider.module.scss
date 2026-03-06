@@ -41,4 +41,18 @@
   .swiper-button-next {
     right: -50px !important;
   }
+
+  .swiper-slide {
+    transition: opacity 0.4s ease;
+
+    @include for-mobile {
+      opacity: 0.4;
+    }
+
+    &.swiper-slide-active {
+      @include for-mobile {
+        opacity: 1;
+      }
+    }
+  }
 }
