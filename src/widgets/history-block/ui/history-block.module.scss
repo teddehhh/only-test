@@ -28,5 +28,6 @@
   @include for-mobile {
     margin: 0 1.5rem;
     flex-direction: column-reverse;
+    gap: 15px;
   }
 }
