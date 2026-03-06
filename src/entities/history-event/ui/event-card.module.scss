@@ -19,4 +19,8 @@
     overflow: hidden;
     min-height: calc(1.5em * 3);
   }
+
+  @include for-mobile {
+    font-size: 14px;
+  }
 }

@@ -1,13 +1,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 let mode = 'development';
 
@@ -17,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: path.resolve(import.meta.dirname, 'index.html'),
+    template: path.resolve(__dirname, 'index.html'),
     filename: 'index.html',
     publicPath: '/',
   }),
@@ -88,9 +87,10 @@ const config = {
                   path.resolve(__dirname, 'src/app/styles/variables.scss'),
                   path.resolve(__dirname, 'src/app/styles/breakpoints.scss'),
                 ];
-                const normalizedPaths = stylePaths.map((path) => path.replace(/\\/g, '/'));
 
-                return normalizedPaths.map((path) => `@use "${path}" as *;`).join('\n') + content;
+                const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
+
+                return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
               },
             },
           },

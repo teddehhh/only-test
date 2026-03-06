@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useCirclePoints } from '../../model/useCirclePoints';
+import { useCirclePoints } from '../../lib/hooks/useCirclePoints';
 import styles from './circle.module.scss';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
