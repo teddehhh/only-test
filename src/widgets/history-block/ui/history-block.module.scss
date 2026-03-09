@@ -10,8 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid $line;
-    border-right: 1px solid $line;
 
     .contentContainer {
       position: absolute;
@@ -31,38 +29,57 @@
         position: relative;
 
         @include for-mobile {
-          margin: 0 1.5rem;
           flex-direction: column-reverse;
           gap: 15px;
         }
+      }
+
+      @include for-mobile {
+        padding: 0;
+        padding-left: 1.5rem;
+        top: 5%;
+        height: 92%;
       }
     }
 
     .circleContainer {
       position: relative;
       top: -7.5%;
+
+      @include for-mobile {
+        top: -14%;
+      }
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: $line;
-      width: 100%;
-      height: 1px;
-      top: 42.5%;
-      left: 0;
-      z-index: -1;
-    }
+    @include for-non-mobile {
+      border-left: 1px solid $line;
+      border-right: 1px solid $line;
 
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: $line;
-      width: 1px;
-      height: 100%;
-      top: 0%;
-      left: 50;
-      z-index: -1;
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: $line;
+        width: 100%;
+        height: 1px;
+        top: 42.5%;
+        left: 0;
+        z-index: -1;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: $line;
+        width: 1px;
+        height: 100%;
+        top: 0%;
+        left: 50;
+        z-index: -1;
+      }
     }
+  }
+
+  @include for-mobile {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

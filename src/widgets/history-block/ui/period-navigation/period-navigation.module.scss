@@ -1,7 +1,7 @@
 .navigationWrapper {
   position: absolute;
   top: 90%;
-  left: 50%;
+  left: 46.5%;
   transform: translateX(-50%) translateY(-50%);
   display: flex;
   justify-content: center;
@@ -16,6 +16,7 @@
     transition:
       opacity 0.3s,
       transform 0.3s;
+    pointer-events: auto;
 
     &.dotActive {
       opacity: 1;

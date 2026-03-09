@@ -26,6 +26,7 @@
   }
 
   @include for-mobile {
-    font-size: clamp(24px, 12vw + 10px, 56px);
+    font-size: clamp(0px, 19vw, 100px);
+    gap: 5vw;
   }
 }
