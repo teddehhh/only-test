@@ -4,8 +4,8 @@ export function useCirclePoints(count: number, radius: number) {
 
   for (let i = 0; i < count; i++) {
     const angle = startAngle + ((2 * Math.PI) / count) * i;
-    const x = Math.round(50 + radius * Math.cos(angle));
-    const y = Math.round(50 + radius * Math.sin(angle));
+    const x = 50 + radius * Math.cos(angle);
+    const y = 50 + radius * Math.sin(angle);
 
     points.push({ x, y });
   }
