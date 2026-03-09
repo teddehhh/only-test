@@ -1,15 +1,15 @@
 .title {
-  position: absolute;
+  position: relative;
   font-size: 45px;
   font-weight: 700;
-  padding-left: 4rem;
   color: $black-blue;
+  line-height: 1.07;
 
   @include for-non-mobile {
     &::before {
       content: '';
       position: absolute;
-      left: -1px;
+      left: -65px;
       top: 0;
       width: 4px;
       height: 100%;

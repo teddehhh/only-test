@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: clamp(20px, 16.6vw, 320px);
-  padding-right: clamp(20px, 8.3vw, 160px);
+  
 
   .inner {
     border-left: 1px $line solid;

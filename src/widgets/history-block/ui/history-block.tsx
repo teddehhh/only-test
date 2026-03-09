@@ -28,10 +28,8 @@ export function HistoryBlock() {
   };
 
   return (
-    <div>
-      <Title />
-      <div className={styles.circleWrapper}>
-        <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
+    <div className={styles.container}>
+      <div className={styles.widgetContainer}>
         {!isMobile && (
           <Circle
             activeIndex={activeIndex}
@@ -40,23 +38,27 @@ export function HistoryBlock() {
             onPointClick={handlePointClick}
           />
         )}
-      </div>
-      <div className={styles.navSliderWrapper}>
-        <SliderNavigation
-          activeIndex={activeIndex}
-          totalCount={DATA.length}
-          onPrev={handlePrevClick}
-          onNext={handleNextClick}
-        />
-        <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
-        {isMobile && <DisplayPeriod title={currentPeriod?.title ?? ''} />}
-        {isMobile && (
-          <PeriodNavigation
-            activeIndex={activeIndex}
-            totalCount={DATA.length}
-            onPointClick={handlePointClick}
-          />
-        )}
+        <div className={styles.contentContainer}>
+          <Title />
+          <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
+          <div className={styles.navSliderContainer}>
+            <SliderNavigation
+              activeIndex={activeIndex}
+              totalCount={DATA.length}
+              onPrev={handlePrevClick}
+              onNext={handleNextClick}
+            />
+            <EventSlider events={currentPeriod?.events ?? []} activePeriodId={activeIndex} />
+            {isMobile && <DisplayPeriod title={currentPeriod?.title ?? ''} />}
+            {isMobile && (
+              <PeriodNavigation
+                activeIndex={activeIndex}
+                totalCount={DATA.length}
+                onPointClick={handlePointClick}
+              />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

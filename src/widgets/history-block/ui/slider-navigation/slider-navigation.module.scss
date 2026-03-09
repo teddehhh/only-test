@@ -29,6 +29,7 @@
     border-radius: 50%;
     border: 1px solid color-mix(in srgb, $black-blue, transparent 50%);
     color: $black-blue;
+    pointer-events: auto;
 
     transition: background-color 0.4s ease;
 

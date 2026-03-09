@@ -1,8 +1,12 @@
 .circle {
   position: absolute;
-  inset: 0;
+  top: 357px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid $circle;
   border-radius: 50%;
+  height: 424px;
+  width: 424px;
 
   .dot {
     color: $black-blue;
@@ -13,6 +17,7 @@
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0.1);
     transition: background-color 0.3s ease;
+    pointer-events: auto;
 
     &::before {
       content: '';

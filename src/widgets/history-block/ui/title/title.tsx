@@ -2,10 +2,10 @@ import styles from './title.module.scss';
 
 export function Title() {
   return (
-    <div className={styles.title}>
+    <h1 className={styles.title}>
       Исторические
       <br />
       даты
-    </div>
+    </h1>
   );
 }

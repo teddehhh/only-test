@@ -1,6 +1,7 @@
 .sliderWrapper {
   position: relative;
   width: 100%;
+  pointer-events: auto;
 
   @include for-mobile {
     padding-bottom: 30px;
