@@ -30,17 +30,19 @@ export function HistoryBlock() {
   return (
     <div className={styles.container}>
       <div className={styles.widgetContainer}>
-        {!isMobile && (
-          <Circle
-            activeIndex={activeIndex}
-            currentTitle={currentPeriod?.title ?? ''}
-            pointsCount={DATA.length}
-            onPointClick={handlePointClick}
-          />
-        )}
+        <div className={styles.circleContainer}>
+          {!isMobile && (
+            <Circle
+              activeIndex={activeIndex}
+              currentTitle={currentPeriod?.title ?? ''}
+              pointsCount={DATA.length}
+              onPointClick={handlePointClick}
+            />
+          )}
+          <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
+        </div>
         <div className={styles.contentContainer}>
           <Title />
-          <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
           <div className={styles.navSliderContainer}>
             <SliderNavigation
               activeIndex={activeIndex}

@@ -38,15 +38,20 @@
       }
     }
 
+    .circleContainer {
+      position: relative;
+      top: -7.5%;
+    }
+
     &::before {
       content: '';
       position: absolute;
       background-color: $line;
       width: 100%;
       height: 1px;
-      top: 357px;
+      top: 42.5%;
       left: 0;
-      transform: translateY(-50%);
+      z-index: -1;
     }
 
     &::after {
@@ -57,7 +62,7 @@
       height: 100%;
       top: 0%;
       left: 50;
-      transform: translateX(-50%);
+      z-index: -1;
     }
   }
 }
