@@ -5,6 +5,17 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
+const sassOptions = {
+  additionalData: (content) => {
+    const stylePaths = [
+      path.resolve(__dirname, 'src/shared/styles/variables.scss'),
+      path.resolve(__dirname, 'src/shared/styles/breakpoints.scss'),
+    ];
+    const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
+    return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
+  },
+};
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -48,9 +59,11 @@ const config = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
+      '@app': path.resolve(__dirname, 'src/app/'),
       '@pages': path.resolve(__dirname, 'src/pages/'),
-      '@entities': path.resolve(__dirname, 'src/entities/'),
       '@widgets': path.resolve(__dirname, 'src/widgets/'),
+      '@features': path.resolve(__dirname, 'src/features/'),
+      '@entities': path.resolve(__dirname, 'src/entities/'),
       '@shared': path.resolve(__dirname, 'src/shared/'),
     },
   },
@@ -81,17 +94,7 @@ const config = {
           },
           {
             loader: 'sass-loader',
-            options: {
-              additionalData: (content) => {
-                const stylePaths = [
-                  path.resolve(__dirname, 'src/shared/styles/variables.scss'),
-                  path.resolve(__dirname, 'src/shared/styles/breakpoints.scss'),
-                ];
-                const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
-
-                return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
-              },
-            },
+            options: sassOptions,
           },
         ],
       },
@@ -103,17 +106,7 @@ const config = {
           'css-loader',
           {
             loader: 'sass-loader',
-            options: {
-              additionalData: (content) => {
-                const stylePaths = [
-                  path.resolve(__dirname, 'src/shared/styles/variables.scss'),
-                  path.resolve(__dirname, 'src/shared/styles/breakpoints.scss'),
-                ];
-                const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
-
-                return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
-              },
-            },
+            options: sassOptions,
           },
         ],
       },
