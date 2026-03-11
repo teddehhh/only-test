@@ -84,10 +84,9 @@ const config = {
             options: {
               additionalData: (content) => {
                 const stylePaths = [
-                  path.resolve(__dirname, 'src/app/styles/variables.scss'),
-                  path.resolve(__dirname, 'src/app/styles/breakpoints.scss'),
+                  path.resolve(__dirname, 'src/shared/styles/variables.scss'),
+                  path.resolve(__dirname, 'src/shared/styles/breakpoints.scss'),
                 ];
-
                 const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
 
                 return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
@@ -106,9 +105,13 @@ const config = {
             loader: 'sass-loader',
             options: {
               additionalData: (content) => {
-                const variablesPath = path.resolve(__dirname, 'src/app/styles/variables.scss');
-                const normalizedPath = variablesPath.replace(/\\/g, '/');
-                return `@use "${normalizedPath}" as *;\n${content}`;
+                const stylePaths = [
+                  path.resolve(__dirname, 'src/shared/styles/variables.scss'),
+                  path.resolve(__dirname, 'src/shared/styles/breakpoints.scss'),
+                ];
+                const normalizedPaths = stylePaths.map((p) => p.replace(/\\/g, '/'));
+
+                return normalizedPaths.map((p) => `@use "${p}" as *;`).join('\n') + '\n' + content;
               },
             },
           },

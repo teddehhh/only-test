@@ -1,4 +1,4 @@
-import { type HistoryEvent } from '../model/types';
+import { type HistoryEvent } from '../model/history-event';
 import styles from './event-card.module.scss';
 
 interface EventCardProps {

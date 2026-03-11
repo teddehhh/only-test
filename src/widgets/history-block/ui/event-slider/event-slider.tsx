@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { EventCard, type HistoryEvent } from '@entities/history-event';
 import gsap from 'gsap';
-
 import 'swiper/swiper-bundle.css';
 import styles from './event-slider.module.scss';
 import { useGSAP } from '@gsap/react';

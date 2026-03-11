@@ -1,6 +1,6 @@
 import { Arrow } from '@shared/ui';
 import styles from './slider-navigation.module.scss';
-import { displayDigits } from '../../lib/display-digits';
+import { displayDigits } from '../../lib/utils/display-digits';
 
 interface SliderNavigationProps {
   activeIndex: number;

@@ -1,4 +1,4 @@
-import { MOBILE_BREAKPOINT } from '../../config/breakpoints';
+import { MOBILE_BREAKPOINT } from '../constants/breakpoints';
 import { useMediaQuery } from './useMediaQuery';
 
 export function useIsMobile() {

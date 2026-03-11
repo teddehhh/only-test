@@ -1,2 +1,2 @@
-export { type HistoryEvent } from './model/types';
+export { type HistoryEvent } from './model/history-event';
 export { EventCard } from './ui/event-card';

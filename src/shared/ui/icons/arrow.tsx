@@ -1,4 +1,4 @@
-import ArrowLeft from '@shared/assets/icons/arrow-left.svg?react';
+import ArrowLeft from '../../assets/icons/arrow-left.svg?react';
 import styles from './arrow.module.scss';
 import type { SVGProps } from 'react';
 import { clsx } from 'clsx';
