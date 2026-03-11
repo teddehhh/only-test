@@ -1,0 +1,17 @@
+.arrow {
+  transition: transform 0.3s ease;
+  stroke: currentColor;
+
+  &.left {
+    transform: rotate(0deg);
+  }
+  &.right {
+    transform: rotate(180deg);
+  }
+  &.up {
+    transform: rotate(90deg);
+  }
+  &.down {
+    transform: rotate(-90deg);
+  }
+}
