@@ -1,6 +1,7 @@
 .title {
   color: $primary;
   font-weight: 700;
+  font-family: var(--font-family-accent);
   padding-bottom: 20px;
 
   &::after {

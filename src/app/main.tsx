@@ -4,9 +4,8 @@ import './styles/main.scss';
 import { StrictMode } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import '@fontsource/bebas-neue/latin-400.css';
-import '@fontsource/pt-sans/700.css';
-import '@fontsource/pt-sans/400.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/press-start-2p/400.css';
 import { App } from './app';
 
 gsap.registerPlugin(useGSAP);
