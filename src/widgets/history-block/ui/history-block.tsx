@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Circle } from './circle/circle';
 import { EventSlider } from './event-slider/event-slider';
-import { YearDigits } from './year-digits/year-digits';
 import styles from './history-block.module.scss';
 import { Title } from './title/title';
 import { SliderNavigation } from './slider-navigation/slider-navigation';
@@ -9,12 +8,15 @@ import { useIsMobile } from '@shared/lib';
 import { DATA } from '../lib/constants/data';
 import { DisplayPeriod } from './display-period/display-period';
 import { PeriodNavigation } from './period-navigation/period-navigation';
+import Sun from '@shared/assets/sun.svg?react';
+import { Planet } from './planet/planet';
 
 export function HistoryBlock() {
   const [activeIndex, setActiveIndex] = useState(0);
   const isMobile = useIsMobile();
 
   const currentPeriod = DATA[activeIndex];
+
   const handlePointClick = (index: number) => {
     setActiveIndex(index);
   };
@@ -32,14 +34,12 @@ export function HistoryBlock() {
       <div className={styles.widgetContainer}>
         <div className={styles.circleContainer}>
           {!isMobile && (
-            <Circle
-              activeIndex={activeIndex}
-              currentTitle={currentPeriod?.title ?? ''}
-              pointsCount={DATA.length}
-              onPointClick={handlePointClick}
-            />
+            <>
+              <Circle activeIndex={activeIndex} onPointClick={handlePointClick} />
+              <Planet Icon={Sun} className={styles.sun} />
+            </>
           )}
-          <YearDigits start={currentPeriod?.startYear ?? ''} end={currentPeriod?.endYear ?? ''} />
+          {isMobile && <Planet Icon={currentPeriod?.icon} className={styles.planet} />}
         </div>
         <div className={styles.contentContainer}>
           <Title />

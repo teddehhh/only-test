@@ -1,7 +1,6 @@
 .container {
   height: 100svh;
-  padding-left: clamp(20px, 16.6vw, 320px);
-  padding-right: clamp(20px, 8.3vw, 160px);
+  padding: 0 clamp(20px, 8.3vw, 160px);
   overflow: hidden;
 
   .widgetContainer {
@@ -46,35 +45,28 @@
       position: relative;
       top: -7.5%;
 
+      .sun {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .planet {
+        width: 50vw;
+        height: 50vw;
+      }
+
       @include for-mobile {
         top: -14%;
       }
     }
 
     @include for-non-mobile {
-      border-left: 1px solid $line;
-      border-right: 1px solid $line;
-
-      &::before {
-        content: '';
-        position: absolute;
-        background-color: $line;
-        width: 100%;
-        height: 1px;
-        top: 42.5%;
-        left: 0;
-        z-index: -1;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        background-color: $line;
-        width: 1px;
-        height: 100%;
-        top: 0%;
-        left: 50;
-        z-index: -1;
-      }
+      border-left: 2px solid $line;
+      border-right: 2px solid $line;
     }
   }
 

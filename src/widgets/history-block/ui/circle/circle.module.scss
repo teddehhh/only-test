@@ -5,21 +5,18 @@
   width: 424px;
 
   .dot {
-    color: $black-blue;
+    color: $primary;
     position: absolute;
-    width: 50px;
-    height: 50px;
-    border: 1px solid rgba(66, 86, 122, 0.5);
     border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
+    transform: translate(-50%, -50%) scale(0.8);
     transition: background-color 0.3s ease;
     pointer-events: auto;
 
     &::before {
       content: '';
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -27,36 +24,16 @@
     }
   }
 
-  .dotNumber {
-    font-size: 12px;
-    font-weight: 400;
-    opacity: 0;
-    visibility: hidden;
-    font-family: var(--font-family-main);
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    &:hover {
-      cursor: grab;
-    }
-  }
-
   .dotTitle {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 80%;
     transform: translateX(40px) translateY(-50%);
     opacity: 0;
     visibility: hidden;
     font-weight: 700;
     white-space: nowrap;
+    font-size: 25px;
+    color: $secondary;
   }
 }

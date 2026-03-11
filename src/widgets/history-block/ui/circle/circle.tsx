@@ -4,17 +4,18 @@ import styles from './circle.module.scss';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { clsx } from 'clsx';
+import { DATA } from '../../lib/constants/data';
 
 interface CircleProps {
   activeIndex: number;
-  pointsCount: number;
-  currentTitle: string;
   onPointClick: (_: number) => void;
 }
 
 export function Circle(props: CircleProps) {
-  const { activeIndex, currentTitle, pointsCount, onPointClick } = props;
+  const { activeIndex, onPointClick } = props;
 
+  const pointsCount = DATA.length;
+  const currentTitle = DATA[activeIndex]?.title;
   const points = useCirclePoints(pointsCount, 50);
   const circleRef = useRef<HTMLDivElement>(null);
 
@@ -22,12 +23,6 @@ export function Circle(props: CircleProps) {
     if (!e.currentTarget.classList.contains(styles.active)) {
       gsap.to(e.currentTarget, {
         scale: 1,
-        backgroundColor: '#f4f5f9',
-        duration: 0.3,
-      });
-      gsap.to(e.currentTarget.querySelector(`.${styles.dotNumber}`), {
-        opacity: 1,
-        visibility: 'visible',
         duration: 0.3,
       });
     }
@@ -36,13 +31,7 @@ export function Circle(props: CircleProps) {
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!e.currentTarget.classList.contains(styles.active)) {
       gsap.to(e.currentTarget, {
-        scale: 0.1,
-        backgroundColor: '#42567a',
-        duration: 0.3,
-      });
-      gsap.to(e.currentTarget.querySelector(`.${styles.dotNumber}`), {
-        opacity: 0,
-        visibility: 'hidden',
+        scale: 0.8,
         duration: 0.3,
       });
     }
@@ -58,21 +47,17 @@ export function Circle(props: CircleProps) {
         rotation: -rotation,
         duration: 1,
         ease: 'power2.inOut',
-        scale: 0.1,
-        backgroundColor: '#42567a',
       });
 
-      gsap.to(`.${styles.active}`, {
-        scale: 1,
-        backgroundColor: '#f4f5f9',
-        duration: 1,
+      gsap.to(`.${styles.dot}:not(.${styles.active})`, {
+        scale: 0.8,
+        duration: 0.5,
         ease: 'power2.inOut',
       });
-      gsap.to(`.${styles.active} .${styles.dotNumber}`, {
-        opacity: 1,
-        visibility: 'visible',
-        duration: 0.5,
-        delay: 0.5,
+      gsap.to(`.${styles.active}`, {
+        scale: 1,
+        duration: 1,
+        ease: 'power2.inOut',
       });
       gsap.to(`.${styles.dotTitle}`, {
         opacity: 1,
@@ -86,22 +71,26 @@ export function Circle(props: CircleProps) {
 
   return (
     <div ref={circleRef} className={styles.circle}>
-      {points.map((point, index) => (
-        <div
-          key={index}
-          className={clsx(styles.dot, { [styles.active]: index === activeIndex })}
-          style={{
-            left: `${point.x}%`,
-            top: `${point.y}%`,
-          }}
-          onClick={() => onPointClick(index)}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <span className={styles.dotNumber}>{index + 1}</span>
-          {index === activeIndex && <span className={styles.dotTitle}>{currentTitle}</span>}
-        </div>
-      ))}
+      {points.map((point, index) => {
+        const Icon = DATA[index]?.icon;
+
+        return (
+          <div
+            key={index}
+            className={clsx(styles.dot, { [styles.active]: index === activeIndex })}
+            style={{
+              left: `${point.x}%`,
+              top: `${point.y}%`,
+            }}
+            onClick={() => onPointClick(index)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <Icon style={{ width: '85px', height: '85px' }} />
+            {index === activeIndex && <span className={styles.dotTitle}>{currentTitle}</span>}
+          </div>
+        );
+      })}
     </div>
   );
 }

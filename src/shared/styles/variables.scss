@@ -1,11 +1,9 @@
 :root {
-  --color-primary: #5d5fef;
-  --color-secondary: #ef5da8;
-  --color-blue: #3877ee;
-  --color-black-blue: #42567a;
-  --color-line: rgba(66, 86, 122, 0.1);
-  --color-circle: rgba(66, 86, 122, 0.2);
-  --color-bg: #f4f5f9;
+  --color-primary: #eff5ff;
+  --color-secondary: #a7c6ff;
+  --color-line: rgba(66, 86, 122, 0.4);
+  --color-circle: rgba(66, 86, 122, 0.4);
+  --color-bg: #292929;
 
   --font-family-main: 'PT Sans', sans-sefif;
   --font-family-accent: 'Bebas Neue', sans-sefif;
@@ -13,8 +11,6 @@
 
 $primary: var(--color-primary);
 $secondary: var(--color-secondary);
-$blue: var(--color-blue);
-$black-blue: var(--color-black-blue);
 $line: var(--color-line);
 $circle: var(--color-circle);
 $bg: var(--color-bg);

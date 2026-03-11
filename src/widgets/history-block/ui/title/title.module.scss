@@ -2,18 +2,18 @@
   position: relative;
   font-size: 45px;
   font-weight: 700;
-  color: $black-blue;
+  color: $primary;
   line-height: 1.07;
 
   @include for-non-mobile {
     &::before {
       content: '';
       position: absolute;
-      left: -65px;
+      left: -66px;
       top: 0;
       width: 4px;
       height: 100%;
-      background: linear-gradient($primary, $secondary);
+      background: $secondary;
     }
   }
 

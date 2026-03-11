@@ -14,12 +14,17 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid color-mix(in srgb, $primary, transparent 50%);
     transition:
       opacity 0.3s ease,
       visibility 0.3s ease;
 
+    &:hover {
+      background-color: rgba(126, 126, 126, 0.616);
+    }
+
     svg {
+      color: white;
       width: 10px !important;
       height: 10px !important;
       fill: none;
