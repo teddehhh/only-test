@@ -39,7 +39,13 @@ export function HistoryBlock() {
               <Planet Icon={Sun} className={styles.sun} />
             </>
           )}
-          {isMobile && <Planet Icon={currentPeriod?.icon} className={styles.planet} />}
+          {isMobile && (
+            <Planet
+              key={currentPeriod?.title}
+              Icon={currentPeriod?.icon}
+              className={styles.planet}
+            />
+          )}
         </div>
         <div className={styles.contentContainer}>
           <Title />

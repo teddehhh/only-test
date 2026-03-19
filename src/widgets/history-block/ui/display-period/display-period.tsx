@@ -13,6 +13,8 @@ export function DisplayPeriod(props: DisplayPeriodProps) {
 
   useGSAP(
     () => {
+      gsap.killTweensOf(containerRef.current);
+
       const tl = gsap.timeline();
 
       tl.to(containerRef.current, {

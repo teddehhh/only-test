@@ -19,6 +19,8 @@ export const EventSlider = (props: EventSliderProps) => {
 
   useGSAP(
     () => {
+      gsap.killTweensOf(containerRef.current);
+
       const tl = gsap.timeline();
 
       tl.to(containerRef.current, {

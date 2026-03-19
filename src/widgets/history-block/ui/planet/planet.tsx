@@ -11,21 +11,20 @@ export function Planet(props: PlanetProps) {
   const { Icon, className } = props;
   const rootRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       gsap.from(rootRef.current, {
         opacity: 0,
-        scale: 0.8,
+        scale: 0.7,
         duration: 1,
         ease: 'power2.out',
       });
-    }, rootRef);
-
-    return () => ctx.revert();
-  }, [Icon]);
+    },
+    { scope: rootRef, dependencies: [Icon] },
+  );
 
   return (
-    <div key={Icon.displayName || Icon.name} ref={rootRef} className={className}>
+    <div ref={rootRef} className={className}>
       <Icon className={className} />
     </div>
   );
