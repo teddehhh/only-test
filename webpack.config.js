@@ -44,8 +44,8 @@ const config = {
   entry: './src/app/main.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
     publicPath: '/',
+    filename: '[name].[contenthash].js',
     clean: true,
   },
   devtool: 'source-map',
